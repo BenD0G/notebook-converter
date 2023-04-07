@@ -20,7 +20,6 @@ struct FileRename {
 }
 
 fn find_all_files(notebook_to_script: bool) -> Vec<FileRename> {
-    // let current_dir = std::env::current_dir().unwrap();
     let old_ending = if notebook_to_script {
         IPYNB_ENDING
     } else {
@@ -68,7 +67,6 @@ fn convert(replacement: &FileRename) {
         "ipynb"
     };
 
-    // Make dir if need me
     let parent_dir = replacement.new_path.parent().unwrap();
     if !parent_dir.exists() {
         create_dir_all(parent_dir).unwrap();
